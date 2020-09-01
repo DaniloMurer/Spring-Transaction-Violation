@@ -14,9 +14,17 @@
     <body>
         <div class="container-fluid">
             <h1 class="title">${message}</h1>
-            <button type="button" class="btn btn-primary">My Happy Button</button>
-            <h3>Kisten: ${kisteEntries}</h3>
-            <h3>Regale: ${regalEntries}</h3>
+        </div>
+        <div class="container mx-auto">
+            <div class="row">
+                <div class="col-sm">
+
+                    <h3>Regale: ${regalEntries}</h3>
+                </div>
+                <div class="col-sm">
+                    <h3>Kisten: ${kisteEntries}</h3>
+                </div>
+            </div>
         </div>
 
 
