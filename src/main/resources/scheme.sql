@@ -1,0 +1,14 @@
+/* Create tables */
+
+CREATE TABLE regal (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	space INT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE kiste (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	name VARCHAR(256) NOT NULL,
+	regal INT,
+
+	FOREIGN KEY(regal) REFERENCES regal(id)
+);
