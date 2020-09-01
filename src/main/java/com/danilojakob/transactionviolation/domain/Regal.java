@@ -9,7 +9,7 @@ public class Regal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int lagerId;
+    private long lagerId;
 
     @Column(nullable = false)
     private int space;
@@ -25,11 +25,11 @@ public class Regal {
         this.kiste = kiste;
     }
 
-    public int getLagerId() {
+    public long getLagerId() {
         return lagerId;
     }
 
-    public void setLagerId(int id) {
+    public void setLagerId(long id) {
         this.lagerId = id;
     }
 

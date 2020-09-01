@@ -2,6 +2,7 @@ package com.danilojakob.transactionviolation.controller;
 
 import com.danilojakob.transactionviolation.domain.Kiste;
 import com.danilojakob.transactionviolation.service.KisteService;
+import com.danilojakob.transactionviolation.service.RegalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ public class KisteController {
 
     @Autowired
     private KisteService kisteService;
+    @Autowired
+    private RegalService regalService;
 
     @GetMapping
     public ResponseEntity<List<Kiste>> get() {
@@ -24,6 +27,7 @@ public class KisteController {
 
     @PostMapping
     public ResponseEntity<HttpStatus> add(@Validated @RequestBody Kiste kiste) {
+        kiste.setRegal(regalService.findById(kiste.getRegal().getLagerId()));
         kisteService.save(kiste);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

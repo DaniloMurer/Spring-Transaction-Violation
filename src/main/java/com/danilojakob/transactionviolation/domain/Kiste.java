@@ -10,7 +10,7 @@ public class Kiste {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int kisteId;
+    private long kisteId;
 
     @Column(nullable = false, length = 256)
     private String name;
@@ -20,11 +20,11 @@ public class Kiste {
     @JsonBackReference
     private Regal regal;
 
-    public int getKisteId() {
+    public long getKisteId() {
         return kisteId;
     }
 
-    public void setKisteId(int id) {
+    public void setKisteId(long id) {
         this.kisteId = id;
     }
 
