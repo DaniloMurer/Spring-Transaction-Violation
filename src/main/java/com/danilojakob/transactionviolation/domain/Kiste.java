@@ -1,5 +1,7 @@
 package com.danilojakob.transactionviolation.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +16,8 @@ public class Kiste {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "regal", nullable = false)
+    @JoinColumn(name = "regal_fk", nullable = false)
+    @JsonBackReference
     private Regal regal;
 
     public int getKisteId() {

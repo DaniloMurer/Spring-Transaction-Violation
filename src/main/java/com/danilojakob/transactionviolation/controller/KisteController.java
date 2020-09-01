@@ -1,9 +1,30 @@
 package com.danilojakob.transactionviolation.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.danilojakob.transactionviolation.domain.Kiste;
+import com.danilojakob.transactionviolation.service.KisteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/kiste")
 public class KisteController {
+
+    @Autowired
+    private KisteService kisteService;
+
+    @GetMapping
+    public ResponseEntity<List<Kiste>> get() {
+        return ResponseEntity.status(HttpStatus.OK).body(kisteService.findAll());
+    }
+
+    @PostMapping
+    public ResponseEntity<HttpStatus> add(@Validated @RequestBody Kiste kiste) {
+        kisteService.save(kiste);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 }
