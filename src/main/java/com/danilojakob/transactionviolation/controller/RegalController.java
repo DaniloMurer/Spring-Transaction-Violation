@@ -28,4 +28,9 @@ public class RegalController {
         regalService_.createRegal(regal);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @PutMapping
+    public ResponseEntity update(@Validated @RequestBody Regal regal) {
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
