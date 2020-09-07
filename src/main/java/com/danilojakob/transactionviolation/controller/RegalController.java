@@ -35,6 +35,6 @@ public class RegalController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("For Update a Id must be provided");
         }
         regalService_.updateRegal(regal);
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

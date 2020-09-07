@@ -27,4 +27,8 @@ public class KisteService {
     public void save(Kiste kiste) {
         kisteRepository.saveAndFlush(kiste);
     }
+
+    public void updateKiste(Kiste kiste) {
+        kisteRepository.saveAndFlush(kiste);
+    }
 }

@@ -31,4 +31,13 @@ public class KisteController {
         kisteService.save(kiste);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PutMapping
+    public ResponseEntity update(@Validated @RequestBody Kiste kiste) {
+        if (kiste.getKisteId() == 0) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("For Update a Id must be provided");
+        }
+        kisteService.updateKiste(kiste);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
