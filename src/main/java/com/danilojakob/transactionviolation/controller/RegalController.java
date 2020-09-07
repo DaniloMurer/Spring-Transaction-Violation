@@ -31,6 +31,10 @@ public class RegalController {
 
     @PutMapping
     public ResponseEntity update(@Validated @RequestBody Regal regal) {
-        return new ResponseEntity(HttpStatus.OK);
+        if (regal.getLagerId() == 0) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("For Update a Id must be provided");
+        }
+        regalService_.updateRegal(regal);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 }

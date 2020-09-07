@@ -34,4 +34,8 @@ public class RegalService {
     public void createRegal(Regal regal) {
         regalRepository.saveAndFlush(regal);
     }
+
+    public void updateRegal(Regal regal) {
+        regalRepository.saveAndFlush(regal);
+    }
 }
